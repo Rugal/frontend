@@ -7,3 +7,61 @@ body {
 h2 {
 	color:teal;
 }
+
+h3 {
+	color:teal;
+	size:30px;
+	text-align: left;
+	margin-left: 25px;
+}
+
+p {
+	text-align: left;
+	margin-left: 25px;
+}
+#bu {
+	float:right;
+	margin-bottom:30px;
+}
+#im{
+float:left;
+}
+#menuimg {
+	padding:8px;
+	border:1px solid #96c2f1;
+	border-radius:10px;
+	background:#eff7ff;
+	overflow:hidden;
+	box-shadow: 0 0 18px 0 #96c2f1,   inset 0 0 10px 0 #96c2f1;
+	
+}
+
+#info {
+	vertical-align: top;
+}
+
+
+.btn {
+	color: 				hsl(208, 50%, 40%) !important;
+	background-color: 	hsl(208, 100%, 75%);
+	
+	-webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px;	/* drop shadow */
+	-moz-box-shadow: 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px;	/* drop shadow */
+	box-shadow: 		inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px;	/* drop shadow */
+    width:120px;
+
+	font-size:15px ;
+	border-radius:10px;
+	margin-right: 20px;
+  }
+  .btn:hover {
+	  background-color: hsl(208, 100%, 83%); 
+    cursor: pointer; }
+
+}
