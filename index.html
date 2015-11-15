@@ -17,41 +17,32 @@
 
  <!--- Angular JS -->
 
-<div ng-app="myApp">
+<div ng-app="foodApp">
 	<p>Please enter your name...
 	<p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
-	<h1>Hello {{name}}</h1>
+	<h1>Hello {{name}},</h1>
 	
-	
-	<div data-ng-controller="button">  
-	 <div id="bu">
-        <button class="btn" id="myElement" name="save" data-ng-click="showbTriggerElement();" >breakfast</button>
-		<button class="btn" id="myElement" name="save" data-ng-click="showlTriggerElement();">lunch</button>
-		<button class="btn" id="myElement" name="save" data-ng-click="showdTriggerElement();">dinner</button>
-		<button class="btn" onclick="location.replace(location)">reload</button>
-     </div>
-	 <div id="im">
-        <div id="trigger-element" data-ng-hide="triggerElement">
-					
-			<div ng-controller="restCtrl">
-				<table>
-					<tr>
-						<th id="menuimg"><img src="https://food-for-you.herokuapp.com/menu/{{names.mid}}/image"></th>
-						<th id="info">
-							<h3>{{names.name}}</h3>
-							<p>Price: ${{names.price}}</p>
-							<p>Resturant :{{names.restaurant.name}}</p>
-							<p>phone :{{names.restaurant.phone}}</p>
-							<p>Address :{{names.restaurant.address}}  {{names.restaurant.postalcode}}</p>
-						</th>
-					</tr>
-		
-				</table>
-			</div>	
+	<div ng-controller="menuController as menuCtrl"> 
+	    <h2>What would you prefer?
+		<button class="btn" ng-click=" mealtype= 'breakfast'; menuCtrl.send(mealtype); showme=true"  ng-model="mealtype">Breakfast</button>
+		<button class="btn" ng-click=" mealtype= 'lunch'; menuCtrl.send(mealtype); showme=true"  ng-model="mealtype">Lunch</button>
+		<button class="btn" ng-click=" mealtype= 'dinner'; menuCtrl.send(mealtype); showme=true"  ng-model="mealtype">Dinner</button></h2>
+		<div ng-show="showme">
+		  <table>
+			<tr>
+				<th id="menuimg"><img id="img" src="https://food-for-you.herokuapp.com/menu/{{menuCtrl.menu.mid}}/image"></th>
+				<th id="info">
+					<h3>{{menuCtrl.menu.name}}</h3>
+					<li ng-repeat="tag in menuCtrl.menu.tags">Type: {{tag.name}}</li>
+					<p>Price: ${{menuCtrl.menu.price}}</p>
+					<p>Resturant: {{menuCtrl.menu.restaurant.name}}</p>
+					<p>phone: {{menuCtrl.menu.restaurant.phone}}</p>
+					<p>Address: {{menuCtrl.menu.restaurant.address}},  {{menuCtrl.menu.restaurant.postalcode}}</p>
+				</th>
+			</tr>
+		  </table>
 		</div>
-	 </div>
 	</div>
-	
 </div>
 
 </body>
