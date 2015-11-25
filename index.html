@@ -20,31 +20,47 @@
 <div ng-app="foodApp">
 	<p>Please enter your name...
 	<p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
-	<h1>Hello {{name}},</h1>
+	<h1>Hello, {{name || 'Guest'}}</h1>
 	
 	<div ng-controller="menuController as menuCtrl"> 
 	    <h2>What would you prefer?
-		<button class="btn" ng-click=" mealtype= 'breakfast'; menuCtrl.send(mealtype); showme=true"  ng-model="mealtype">Breakfast</button>
-		<button class="btn" ng-click=" mealtype= 'lunch'; menuCtrl.send(mealtype); showme=true"  ng-model="mealtype">Lunch</button>
-		<button class="btn" ng-click=" mealtype= 'dinner'; menuCtrl.send(mealtype); showme=true"  ng-model="mealtype">Dinner</button></h2>
+		<button class="btn" ng-click=" mealtype= 'breakfast'; menuCtrl.send(mealtype); showme=true"  ng-model="mealtype ">Breakfast</button>
+		<button class="btn" ng-click=" mealtype= 'lunch'; menuCtrl.send(mealtype); showme=true "  ng-model="mealtype">Lunch</button>
+		<button class="btn" ng-click=" mealtype= 'dinner'; menuCtrl.send(mealtype); showme=true "  ng-model="mealtype">Dinner</button></h2>
 		<div ng-show="showme">
+					
 		  <table>
 			<tr>
 				<th id="menuimg"><img id="img" src="https://food-for-you.herokuapp.com/menu/{{menuCtrl.menu.mid}}/image"></th>
 				<th id="info">
 					<h3>{{menuCtrl.menu.name}}</h3>
-					<li ng-repeat="tag in menuCtrl.menu.tags">Type: {{tag.name}}</li>
+					<ul>Type: 
+						<li ng-repeat="tag in menuCtrl.menu.tags">{{tag.name}}</li>
+					</ul>
 					<p>Price: ${{menuCtrl.menu.price}}</p>
 					<p>Resturant: {{menuCtrl.menu.restaurant.name}}</p>
 					<p>phone: {{menuCtrl.menu.restaurant.phone}}</p>
-					<p>Address: {{menuCtrl.menu.restaurant.address}},  {{menuCtrl.menu.restaurant.postalcode}}</p>
+					<p>Address: {{menuCtrl.menu.restaurant.address + ',' + menuCtrl.menu.restaurant.postalcode}}</p>
+					 <div ng-controller="mapCtrl">
+						<button id="map" ng-click="mapicon()"></button> 
+						</br>
+						<div ng-show="showmap" >
+							<p id="menu"></p>
+						</div>															
+						
+					</div> 
+					
 				</th>
 			</tr>
 		  </table>
 		</div>
 	</div>
 </div>
+</div>
+<div id="footer"> Team 12 : Food For You</br>
 
+Jing Tao, Pei-En Chang, Ying Mi, Yunheng Yao</br>
+</div>
 </body>
 </html>
    
